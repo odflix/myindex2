@@ -1,6 +1,6 @@
 // =======Options START=======
 var authConfig = {
-  siteName: "goindex", // Website name
+  siteName: "Flac By Thugs", // Website name
   version: "1.1.1", //Program Version
   theme: "acrou",
   // Highly recommend using your own client_id and client_secret
@@ -65,9 +65,9 @@ var authConfig = {
 };
 
 var themeOptions = {
-  cdn: "https://cdn.jsdelivr.net/gh/alx-xlx/goindex",
+  cdn: "https://cdn.jsdelivr.net/gh/magneto261290/myindex2",
 // Theme version number 
-  version: "2.0.5-darkmode-0.1", //2.0.5-darkmode-0.1/goindex-acrou
+  version: "master", //2.0.5-darkmode-0.1/goindex-acrou
   //Optional default system language:en/zh-chs/zh-cht
   languages: "en",
   render: {
@@ -75,12 +75,12 @@ var themeOptions = {
       * Whether to render HEAD.md file
       * Render HEAD.md file
       */
-    head_md: false,
+    head_md: true,
 /**
       * Whether to render README.md file
       * Render README.md file
       */
-    readme_md: false,
+    readme_md: true,
 /**
       * Whether to render file/folder description
       * Render file/folder description or not
