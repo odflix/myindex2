@@ -65,10 +65,10 @@
             class="navbar-item"
             target="_blank"
             rel="noopener"
-            title="View on github"
-            href="https://github.com/Aicirou/goindex-theme-acrou"
+            title="Join Thugs on Telegram"
+            href="t.me/ThugsDump"
           >
-            <i class="fab fa-github"></i>
+            <i class="fab fa-telegram"></i>
           </a>
           <header-setting />
           <a
