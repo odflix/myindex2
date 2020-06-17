@@ -1,167 +1,83 @@
-﻿![GoIndex](themes/logo.png)  
-  
-GoIndex  
-====  
-Google Drive Directory Index  
+
+
+# GoIndex-theme-acrou 
 Combining the power of [Cloudflare Workers](https://workers.cloudflare.com/) and [Google Drive](https://www.google.com/drive/) will allow you to index you files on the browser on Cloudflare Workers.    
 
-`index.js` is the content of the Workers script.  
+[goindex/index.js](https://github.com/Aicirou/goindex-theme-acrou/go2index) is the content of the Workers script.  
 
+This theme's goindex is currently based on [yanzai/goindex](https://github.com/yanzai/goindex/)
 
-# Versions
+[README](README.md) | [中文文档](README_zh.md)
 
+## Demo  
 
+Acrou: [https://oss.achirou.workers.dev/](https://oss.achirou.workers.dev/) 
 
-## [Aicirou/goindex-theme](https://github.com/Aicirou/goindex-theme-acrou)
+## Features
 
-Dark Mode : [index.js](https://github.com/alx-xlx/goindex/blob/2.0.5-darkmode-0.1/goindex-acrou/go2index/index.js)
+- [x] 🗂 Multi drive switching
+- [x] 🔐 Http Basic Auth
+- [x] 🎨 Grid view mode(File Preview)
+- [x] 🎯 Paging load
+- [x] 🌐 I18n(multi-language)
+- [x] 🛠 Html render 
+- [x] 🖥 Video Online(mp4,mkv,webm,flv,m3u8)
+- [x] 🚀 Faster speed
 
-Copy the [index.js](https://github.com/alx-xlx/goindex/blob/2.0.5-darkmode-0.1/goindex-acrou/go2index/index.js) script to [workers.dev](https://workers.dev) and edit `client_id`, `client_secret`, `refresh_token` with yours
+## TODO
 
-OR
+- [ ] More file format preview
+- [ ] Let goindex be more than just a directory index
 
-### GoIndex Auto Code Builder
-https://goindex.glitch.me/
+## Quick Deployment
 
-Simply visit [this](https://goindex.glitch.me/) Modified (only for Dark Mode) version to automatically generate your `index.js` without having to manually edit anything.
-
-### List View - Dark Mode
-![](https://i.imgur.com/Y9pJo1V.png)
-
-### Thumbnail View - Dark Mode
-![](https://i.imgur.com/crg4dGp.gif)
-
----
-
-## donwa/goindex
-
-index.js
-
-## Themes
-### material: [https://index.gd.workers.dev/](https://index.gd.workers.dev/)
-
-![](https://i.imgur.com/jAq7Lsm.png)
-
-### classic: [https://indexc.gd.workers.dev/](https://indexc.gd.workers.dev/)
-
-![](https://i.imgur.com/lNeh3S3.png)
+1. Open https://goindex-quick-install.glitch.me  
+2. Auth and get the code  
+3. Deploy the code to [Cloudflare Workers](https://www.cloudflare.com/)
 
 ## Deployment  
-1.Install `rclone` software locally  
-2.Follow [https://rclone.org/drive/]( https://rclone.org/drive/) bind a drive  
-3.Execute the command`rclone config file` to find the file `rclone.conf` path  
-4.Open `rclone.conf`,find the configuration `root_folder_id` and `refresh_token`  
-5.Download index.js in https://github.com/donwa/goindex and fill in root and refresh_token  
-6.Deploy the code to [Cloudflare Workers](https://www.cloudflare.com/)
 
-## Quick Deployment  
-1.Open https://installen.gd.workers.dev/  
-2.Auth and get the code  
-3.Deploy the code to [Cloudflare Workers](https://www.cloudflare.com/)  
+1. Open [Google Drive API](https://console.developers.google.com/apis/api/drive.googleapis.com/overview)
+2. Create a [OAuth client ID](https://console.developers.google.com/apis/credentials/oauthclient)
+3. Install [rclone](https://rclone.org/downloads/) software locally
+4. Get `refresh_token ` with `rclone`
+5. Download `index.js` in https://github.com/Aicirou/goindex-theme-acrou/go2index and replace `client_id`,`client_secret`,`refresh_token` for what you just got.
+6. Deploy the code to [Cloudflare Workers](https://www.cloudflare.com/)
 
-# Optional
-Use this when you want to host everything
+> If you write a good article and want to share it with others, please submit Issues and I will post the link here.
 
-## Get Google ClientID and SecretID
-Log into the Google API Console [https://console.developers.google.com/] with your Google account. It doesn’t matter what Google account you use. (It need not be the same account as the Google Drive you want to access)
+## Logs
 
-Select a project or create a new project.
+### 2020-5-20
 
-Under “ENABLE APIS AND SERVICES” search for “Drive”, and enable the “Google Drive API”.
+- Program changed to SPA(single page application)
 
-Click “Credentials” in the left-side panel (not “Create credentials”, which opens the wizard).
+- Add page level cache(The browser does not refresh and load in seconds after backward, and Mac users have a better experience of using touch pad)
+- Add http basic auth(Each drive letter can be configured with a user name and password separately, which can protect all sub files and sub folders under the drive)
+- Add  grid view mode(File preview)
+- Add paging load
+- Add  i18n
+- Add html render 
+- Add render folder/file description
+- Add optional configuration
+- Support quick deployment
+- Support PDF Online preview
+- Replace text editor
+- Solve the problem of URL encoding [#20](https://github.com/Aicirou/goindex-theme-acrou/issues/20) [#23](https://github.com/Aicirou/goindex-theme-acrou/issues/23) [#25](https://github.com/Aicirou/goindex-theme-acrou/issues/25)
+- Solve other known problems
 
-It will prompt you to set the OAuth consent screen product name, if you haven’t set one already.
+### 2020-4-29
 
-OAuth Consent Screen > User Type > External > Application Name
+- Support multi disk switching
+- Add version detection
+- Optimize search results
+- Optimize page display
 
-Click “Credentials” in the left-side panel, then “Create credentials”, then “OAuth client ID”. 
+## About
 
-Choose an application type of “other”, and click “Create”. (the default name is fine)
+At the beginning of this project, it was just to satisfy my personal perception and experience development. When this project reaped the first start, the first fork and the first issues, and then everyone began to make suggestions, I had the power to update. Thank you very much for your support. Now we have version 2.0.
 
-It will show you a client ID and client secret. Use these values in rclone config to add a new remote or edit an existing remote
+## Lisense
 
-## Setup rclone
+[MIT](LICENSE)
 
-Install `rclone` software locally  
-Follow [https://rclone.org/drive/]( https://rclone.org/drive/) bind a drive
-
-Use the `client_id` & `client_secret` while setup
-
-Execute the command `rclone config file` to find the file `rclone.conf` path  
-
-open rclone's config file, here we will find following Configurations (we will need these in next steps)
-- client_id
-- client_secret
-- refresh_token
-- ROOT_FOLDER (will be like 0AG1OSyxjvYcLUk9PVA)
-
-## Setup Cloudfare Workers
-
-Go to [https://workers.cloudflare.com/]
-
-signup using email and password
-enter a subdomain [____.workers.dev] ---> Set up
-
-Choose Workers Plan (FREE)
-- FREE - 10000 request/day
-- $5/month - 10M requests/month
-  
-Verify Email
-Goto Workers ---> "Create a Worker"
-
-Now copy the Content of the `index.js` to the script section
-
-Edit this object in the script with the details you generated above
-
-```
-var authConfig = {
-    "siteName": "GoIndex", // Sitename
-    "root_pass": "",  // root password, leave it blank if you don't want
-    "version" : "1.0.6", // Program Version
-    "hash" : "master", // master OR your HASH, do not leave blank (changes each time you make a commit)
-    "theme" : "classic", // material  classic 
-    "client_id": "****************************.apps.googleusercontent.com", // client_id from rclone config
-    "client_secret": "*******************", // client_secret from rclone config
-    "refresh_token": "******************************************", // authorized refresh token from rclone config
-    "root": "0AG1OSyxjvYcLUk9PVA" // ROOT_FOLDER from rclone config,
-};
-```
-
-### Important Note : 
-- if you have binded Teamdrive with rclone then make sure you specify the TeamDrive's root folder.
-Example - ["root": "0AG1OSyxjvYcLUk9PVA"]
-- but if you want to use "My Drive" then simply write "root".
-Example - ["root": "root"]
-- Each time you make a commit to a file its HASH changes, so to access the new file you have to specify the hash OR keep it default `"hash" : "master"`
-
-
-## Host src file in your own github repo
-why ?
-
-you can change the icon of the folders and files and much more 
-
-replace the below line in head with yours
-```
-<USERNAME>
-<REPOSITORY>
-<VERSION or HASH>
-</PATH/TO/FILE>
-```
-```
-src="//cdn.jsdelivr.net/combine/gh/jquery/jquery/dist/jquery.min.js,gh/<USERNAME>/<REPOSITORY>@<VERSION or HASH>/PATH/TO/FILE.js"
-```
-Example :
-
-```
-src="//cdn.jsdelivr.net/combine/gh/jquery/jquery/dist/jquery.min.js,gh/alx-xlx/goindex@${authConfig.hash}/themes/${authConfig.theme}/app.js"
-```
-
-## Change Icons
-SOON
-https://www.w3.org/Icons/
-https://www.w3.org/icons/
-https://www.base64-image.de/
-
-## About  
-Cloudflare Workers allow you to write JavaScript which runs on all of Cloudflare's 150+ global data centers.  
